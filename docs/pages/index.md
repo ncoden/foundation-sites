@@ -56,15 +56,15 @@ Get to know the pieces of Foundation.
     <strong>Media Queries</strong>
     <p>Working with Foundation's breakpoints.</p>
   </a></div>
-  <div class="column"><a href="media-queries.html">
+  <div class="column"><a href="flexbox.html">
     <strong>Flexbox Mode</strong>
     <p>Supercharge your CSS with flexbox.</p>
   </a></div>
-  <div class="column"><a href="media-queries.html">
+  <div class="column"><a href="compatibility.html">
     <strong>Compatibility</strong>
     <p>What browsers does Foundation work with?</p>
   </a></div>
-  <div class="column"><a href="media-queries.html">
+  <div class="column"><a href="kitchen-sink.html">
     <strong>Kitchen Sink</strong>
     <p>Every component on one page.</p>
   </a></div>
@@ -89,7 +89,7 @@ Get to know the pieces of Foundation.
     <section>
       <h4>Typography</h4>
       <ul>
-        <li><a href="base-typography.html">Base Styles</a></li>
+        <li><a href="typography-base.html">Base Styles</a></li>
         <li><a href="typography-helpers.html">Helper Classes</a></li>
       </ul>
     </section>
@@ -141,6 +141,7 @@ Get to know the pieces of Foundation.
         <li><a href="reveal.html">Reveal</a></li>
         <li><a href="table.html">Table</a></li>
         <li><a href="tabs.html">Tabs</a></li>
+        <li><a href="responsive-accordion-tabs.html">Responsive Accordion Tabs</a></li>
       </ul>
     </section>
   </div>
@@ -149,7 +150,7 @@ Get to know the pieces of Foundation.
       <h4>Media</h4>
       <ul>
         <li><a href="badge.html">Badge</a></li>
-        <li><a href="flex-video.html">Flex Video</a></li>
+        <li><a href="responsive-embed.html">Responsive Embed</a></li>
         <li><a href="label.html">Label</a></li>
         <li><a href="orbit.html">Orbit</a></li>
         <li><a href="progress-bar.html">Progress Bar</a></li>

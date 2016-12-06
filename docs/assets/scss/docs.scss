@@ -11,8 +11,6 @@
 @import 'foundation';
 @import 'motion-ui';
 
-$-zf-flex-classes-imported: true;
-
 @include foundation-everything;
 @include foundation-flex-classes;
 @include foundation-range-input;
@@ -21,117 +19,174 @@ $-zf-flex-classes-imported: true;
 @include motion-ui-transitions;
 
 @import 'foundation-docs';
+@import 'examples/grid';
+@import 'examples/motion-ui';
+@import 'examples/off-canvas';
+@import 'examples/orbit';
+@import 'examples/responsive-embed';
+@import 'examples/reveal';
 
-.docs-newsletter { margin-top: 0 !important; }
-#subForm { margin-top: 1rem; }
+@import 'course-callout';
 
-#studiosCallout {
-    border-top: 1px solid #f6f4f4;
-    padding: 45px 45px 20px 45px !important;
-    background-color: #fafafa !important;
-
-    .property-label {
-      font-family: "Proxima Nova Condensed Bold","Proxima Nova Condensed","proxima-nova-condensed","Helvetica Neue",Helvetica,Arial,sans-serif;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    h3 {
-      font-size: 26px;
-      margin-top: 20px;
-      color: #333;
-    }
-
-    .lead {
-      font-size: 18px;
-      color: #333;
-    }
-
-    img {
-      width: 100%;
-      height: 250px;
-      overflow: hidden;
-    }
+$topbar-background: #2c3840;
+$topbar-hover-color: lighten($topbar-background, 10%);
 
 
-    /* -= Button + Label Colors Based on Property =- */
-
-    &.university {
-      .button { background: #ff6908;
-        &:hover {
-          background-color: #de5700;
-          transition: .25 ease all;
-        }
-      }
-      .property-label { color: #ff6908; }
-    }
-    &.foundation {
-      .button { background: #2CADBE;
-        &:hover {
-          background-color: #228795;
-          transition: .25 ease all;
-        }
-      }
-      .property-label { color: #2CADBE; }
-    }
-    &.studios {
-      .button { background: #2CADBE;
-        &:hover {
-          background-color: #228795;
-          transition: .25 ease all;
-        }
-      }
-      .property-label { color: #2CADBE; }
-    }
-  }
-
-  #studiosCallout {
-    @media (max-width: 650px) {
-      text-align: left;
-
-      .button {
-        width: auto;
-      }
-
-      h1 {
-        margin-top: 0;
-      }
-    }
-  }
-
-  /* Banner for announcements */
-a.notice {
+/* Banner for announcements */
+a#notice {
   display:block;
   overflow: hidden;
   position: relative;
   padding: 1rem 0;
   width:100%;
-  background: url(../img/inky-banner-bg-boat.svg) no-repeat center center; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background-image: url('http://zurb.com/university/assets/zurbwired2016-web-banner-a95e5d17264e3617a2ae4f34e84f973b.gif');
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #0078AB;
+  height: 70px;
 
-  @include breakpoint(medium down) {
-    background: url(../img/inky-banner-bg-clear.svg) no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  .countdown {
+    display:none;
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: 500;
+    margin-left: -50%;
+    font-family: "Proxima-Nova", "Proxima", "proxima-nova", sans-serif;
+    background-color: rgba(0,120,171,0.7);
+    -webkit-box-shadow: 0px 0px 16px 7px rgba(0,120,171,0.7);
+    -moz-box-shadow: 0px 0px 16px 7px rgba(0,120,171,0.7);
+    box-shadow: 0px 0px 16px 7px rgba(0,120,171,0.7);
+  }
 
+  .timer-colon {
+    margin: 0px -2px 0px -4px;
+    padding: 0;
+  }
+
+  .timer-hour, .timer-minute, .timer-second {
+    letter-spacing: 2px;
   }
 
   .info {
     left: 0;
     right: 0;
+    // top: 15px;
     z-index: 20;
+    margin-top: -7px;
+    // width: 75%;
     margin-left: auto;
     margin-right: auto;
+    // position: absolute;
+    h5 { color: #ffffff; font-size: 18px !important;}
+    text-align: center;
+    @media only screen and (max-width: 675px) { width: 100%; padding: 0 15px 0px 15px; position: relative; }
+  }
 
-    h5 { 
-      color: #ffffff; 
-      text-align: center;
-      margin-bottom: 0 !important;
+  @media (max-width: 800px) {
+    background-position: 51.2% 0;
+    .countdown { display: none; }
+  }
+}
+/* COUNTDOWN END */
+
+
+.marketing-topbar,
+.title-bar {
+  background: $topbar-background;
+
+  .dropdown.menu a {
+    background: $topbar-background;
+  }
+  .is-dropdown-submenu-item a {
+    &:hover {
+      background: $topbar-hover-color;
     }
   }
+
+  .title {
+    background: $topbar-background;
+  }
+}
+
+.dropdown.menu a.button {
+  background: $primary-color;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+}
+
+
+.marketing-topbar .menu a:hover:not(.button),
+.marketing-topbar .menu a:focus {
+  background: $topbar-hover-color;
+}
+
+.marketing-topbar .menu .topbar-title a {
+  &:hover,
+  &:focus {
+    background: $topbar-background;
+  }
+}
+
+.docs-newsletter {
+  padding: 1rem 0;
+}
+
+.footer-signup-form {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.zurb-footer-bottom {
+  background: $topbar-background;
+}
+
+.ad-unit {
+  max-width: 250px;
+  padding: .5rem;
+  background: #074E68;
+  border-radius: 4px;
+}
+
+.ad-unit-title {
+  padding: 10px 16px 5px 16px;
+  text-align: center;
+  color: #fff;
+  font-size: 23px;
+  font-weight: bold;
+  font-family: 'proxima nova', helvetica, arial;
+  animation:  ad-title-anim 1.5s 1 ease;
+  animation-fill-mode: backwards;
+}
+
+.ad-unit-text {
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  padding: 0 15px 10px 15px;
+  animation:  ad-text-anim 1s 1 ease;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+}
+
+.ad-unit-button {
+  margin-bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 0 rgba(0,0,0,0.2) inset;
+  border: 0;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+
+@keyframes ad-title-anim {
+  0%   { opacity: 0; transform: translateY(50%); }
+  100% { opacity: 1; }
+}
+
+@keyframes ad-text-anim {
+  0%   { opacity: 0; transform: scale(.7, .7); }
+  100% { opacity: 1; transform: scale(1, 1);}
 }

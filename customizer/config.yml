@@ -7,6 +7,12 @@
 grid:
   sass: grid
 
+flex_grid:
+  sass: flex-grid
+
+flex_classes:
+  sass: flex-classes
+
 typography:
   sass: typography
 
@@ -79,9 +85,9 @@ dropdown_menu:
 
 equalizer:
   js: equalizer
-
-flex_video:
-  sass: flex-video
+  js_utils:
+    - mediaQuery
+    - timerAndImageLoader
 
 interchange:
   js: interchange
@@ -103,6 +109,9 @@ media_object:
 menu:
   sass: menu
 
+menu_icon:
+  sass: menu-icon
+
 off_canvas:
   sass: off-canvas
   js: offcanvas
@@ -116,11 +125,17 @@ orbit:
     - keyboard
     - touch
 
+pagination:
+  sass: pagination
+
 progress_bar:
   sass: progress-bar
 
 progress_element:
   sass: progress-element
+
+responsive_embed:
+  sass: responsive-embed
 
 responsive_menu:
   js: responsiveMenu
@@ -144,6 +159,7 @@ slider:
     - motion
     - triggers
     - mediaQuery
+    - keyboard
 
 sticky:
   sass: sticky
@@ -160,6 +176,7 @@ reveal:
     - motion
     - triggers
     - mediaQuery
+    - keyboard
 
 switch:
   sass: switch

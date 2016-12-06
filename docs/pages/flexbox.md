@@ -22,20 +22,21 @@ Flexbox mode is only supported these browsers:
 
 ## Enabling Flexbox Mode
 
-If you're using the CSS version of Foundation, you can generate a <a href="https://foundation.zurb.com/sites/download">custom download of Foundation</a> with flexbox mode enabled.
+If you're using the CSS version of Foundation, you can generate a <a href="https://foundation.zurb.com/sites/download">custom download of Foundation</a> with flexbox mode enabled. If you're using the Sass version of Foundation, you can enable flexbox mode two ways:
 
-If you're using the Sass version, open your settings file and set `$global-flexbox` to `true`.
-
-You'll also need to replace the default float grid with the flex grid, which is actually a separate component. To do this, remove the `@include` for the float grid and replace it with the one for the flex grid.
+If you use the `foundation-everything()` mixin in your main Sass file, pass in the parameter `true` to enable flexbox mode.
 
 ```scss
-// @include foundation-grid-classes;
-@include foundation-flex-grid;
+@include foundation-everything(true);
 ```
 
-Lastly, you'll also want to add the include for the flexbox helper classes.
+If you included each component manually (like our starter projects do), open your settings file (basic template: scss/_settings.scss, ZURB template: src/assets/scss/_settings.scss) and set `$global-flexbox` to `true`, and remove the `@include` for the float grid and replace it with the one for the flex grid, along with the helper classes (basic template: scss/app.scss, ZURB template: src/assets/scss/app.scss):
 
 ```scss
+$global-flexbox: true;
+
+// @include foundation-grid;
+@include foundation-flex-grid;
 @include foundation-flex-classes;
 ```
 
@@ -50,7 +51,7 @@ Besides the flex grid, these components have flexbox modes:
 - [Menu](menu.html)
 - [Top bar](top-bar.html)
 - [Media object](media-object.html)
-- [Title bar](title-bar.html)
+- [Title bar](off-canvas.html#title-bar)
 
 In general, all of the components work exactly the same. However, a few of them require slight changes to CSS classes used to work properly. Refer to the documentation for each to find out what's different.
 
@@ -58,7 +59,7 @@ In general, all of the components work exactly the same. However, a few of them 
 
 ## Helper Classes
 
-Flexbox makes horizontal and vertical alignment painless, through the CSS properties [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items), [`align-self`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self), and [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content). Foundation includes a handful of classes for these properties, which work with any flexbox-enabled component.
+Flexbox makes horizontal and vertical alignment painless, through the CSS properties [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items), [`align-self`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self), and [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content). Foundation includes a handful of classes for these properties, which work with any flexbox-enabled component.
 
 To understand how these classes work, you need to understand the parent-child relationship created with flexbox. An element with `display: flex` is a *flex parent*, and can horizontally or vertically align its children. All immediate children of the flex parent are *flex children*. A flex child can vertically align itself.
 
@@ -160,6 +161,53 @@ To align an individual child, use the below classes. They use the same alignment
   <div class="column align-self-middle">Align middle</div>
   <div class="column align-self-top">Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?</div>
 </div>
+```
+
+## Vanilla Flexbox Helper Classes
+
+Foundation also includes some helper classes for quickly applying flex
+container & direction attributes to elements.
+
+To make something a flex container, simply apply
+- `.flex-container`
+
+And to change its flex direction from row to column you can use the helper classes:
+
+- `.flex-dir-row` (default)
+- `.flex-dir-row-reverse`
+- `.flex-dir-column`
+- `.flex-dir-column-reverse`
+
+For children, there are 3 quick helper classes
+
+- `.flex-child-auto` (auto size flex child)
+- `.flex-child-grow` (flex child that will grow to take up all possible space)
+- `.flex-child-shrink` (flex child that will shrink to minimum possible space)
+
+```html_example
+<div class="row">
+  <div class="column flex-container flex-dir-column">
+    <div class="callout flex-child-auto">Auto</div>
+    <div class="callout flex-child-auto">Auto</div>
+    <div class="callout flex-child-shrink">Shrink</div>
+  </div>
+  <div class="column">
+  </div>
+  <div class="column align-self-top">Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?</div>
+</div>
+```
+
+All of these helper classes come in responsive varieties, prefixed with all of your named breakpoints.  So you can do things like
+
+```html_example
+  <div class="row">
+    <div class="column large-12 flex-container flex-dir-column large-flex-dir-row">
+      <div class="callout flex-child-auto">Auto</div>
+      <div class="callout flex-child-auto">Auto</div>
+      <div class="callout flex-child-shrink large-flex-child-auto">Auto on Large</div>
+    </div>
+    <div class="column align-self-top">Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?Align top. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?</div>
+  </div>
 ```
 
 ---
