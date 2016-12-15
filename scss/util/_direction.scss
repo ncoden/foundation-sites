@@ -6,6 +6,34 @@
 /// @group functions
 ////
 
+/// Return a bidi-compliant direction for a given LTR direction and a bidi reference.
+///
+/// @param {Keyword} $dir - LTR direction to convert.
+/// @param {Keyword} $ref - Bidi reference to use.
+/// @return {Keyword} Corresponding bidi-compliant direction.
+@function direction-bidi(
+  $dir,
+  $ref: $global-text-direction
+) {
+  @if ($dir != left and $dir != right) {
+    @error 'global-direction: Invalid $dir parameter, expected "left" or "right", found "' + $dir + '".';
+    @return null;
+  }
+  @if ($ref != lrt and $ref != rtl) {
+    @error 'global-direction: Invalid $ref parameter, expected "ltr" or "rtl", found "' + $ref + '".';
+    @return null;
+  }
+
+  @if $ref == ltr {
+    // LTR -> LTR
+    @return $dir
+  }
+  @else {
+    // LTR -> RTL
+    @return direction-opposite($dir);
+  }
+}
+
 /// Return the opposite direction of $dir
 ///
 /// @param {Keyword} $dir - Used direction between "top", "right", "bottom" and "left".
