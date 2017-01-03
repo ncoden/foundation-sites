@@ -39,6 +39,7 @@
     "chalk": "^1.1.1",
     "clipboard": "^1.5.5",
     "corejs-typeahead": "^1.0.1",
+    "coveralls": "^2.11.15",
     "doiuse": "^2.5.0",
     "foundation-docs": "zurb/foundation-docs",
     "gulp": "^3.8.10",
