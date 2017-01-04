@@ -12,7 +12,7 @@
     "test:sass": "mocha test/sass/test_sass.js",
     "test:javascript": "gulp sass:foundation && gulp test:transpile-js && mocha-phantomjs --ignore-resource-errors test/javascript/index.html",
     "test:visual": "gulp test",
-    "coverage": "istanbul cover ./node-modules/mocha_phantomjs/bin/mocha-phantomjs --report lcovonly -- --ignore-resource-errors test/javascript/index.html -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "coverage": "istanbul cover ./node_modules/mocha-phantomjs/bin/mocha-phantomjs --report lcovonly -- --ignore-resource-errors test/javascript/index.html -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "deploy": "gulp deploy",
     "deploy:prep": "gulp deploy:prep",
     "deploy:docs": "gulp deploy:docs"
