@@ -1,0 +1,42 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Foundation for Sites Testing</title>
+    <link href="../motion-ui/dist/motion-ui.css" rel="stylesheet" />
+    <link href="../assets/css/foundation.css" rel="stylesheet" />
+    <style type="text/css">
+      #exampleModal1 {
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row column">
+      <h1>Two Reveals</h1>
+
+      <section>
+        <p></p>
+        <p><a data-open="exampleModal1">Open Modal1 1</a></p>
+
+        <div class="reveal" id="exampleModal1" data-reveal>
+          <p><a data-close>Close</a></p>
+          <p><a data-open="exampleModal2">Open Modal1 2</a></p>
+        </div>
+        <div class="reveal" id="exampleModal2" data-reveal>
+          <p><a data-close>Close</a></p>
+        </div>
+      </section>
+    </div>
+
+    <script src="../assets/js/vendor.js"></script>
+    <script src="../assets/js/foundation.js"></script>
+    <script>
+      Foundation.Reveal.defaults.closeOnClick = false;
+      Foundation.Reveal.defaults.multipleOpened = true;
+      $(document).foundation();
+    </script>
+  </body>
+</html>
