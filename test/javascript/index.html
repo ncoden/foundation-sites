@@ -10,8 +10,7 @@
   </head>
   <body>
     <div id="mocha"></div>
-    <script src="../../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../../_build/assets/js/foundation.js"></script>
+    <!--<script src="../../node_modules/jquery/dist/jquery.js"></script>-->
     <script src="lib/mocha.js"></script>
     <script src="lib/chai.js"></script>
     <script src="lib/chai-jquery.js"></script>
@@ -20,6 +19,7 @@
       mocha.setup('bdd');
       chai.should();
     </script>
+    <script src="../../_build/assets/js/foundation.js" data-cover></script>
     <script src="js-tests.js"></script>
     <script>
       mocha.run();
