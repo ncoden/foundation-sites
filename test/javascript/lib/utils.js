@@ -13,7 +13,7 @@
     var _opts = Object.assign({}, opts);
     var totalTime = 0;
 
-    var interval = setInterval(() => {
+    var interval = setInterval(function () {
       var succeded = false;
       var error = null;
 
