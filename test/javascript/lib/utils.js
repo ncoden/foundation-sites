@@ -1,4 +1,4 @@
-(function (global) {
+(function (global, $) {
 
   /**
   * Try to catch the `do` function every `interval` delay, until it succedes
@@ -10,7 +10,7 @@
   * @param  {object} opts
   */
   global.tryInterval = function (opts) {
-    var _opts = Object.assign({}, opts);
+    var _opts = $.extend({}, opts);
     var totalTime = 0;
 
     var interval = setInterval(function () {
@@ -40,4 +40,4 @@
     }, _opts.interval);
   };
 
-})(window);
+})(window, jQuery);
