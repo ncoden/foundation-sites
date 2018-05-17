@@ -1,4 +1,4 @@
-describe('Interchange', function() {
+describe('Interchange', function () {
   var plugin;
   var $html;
 
@@ -192,12 +192,18 @@ describe('Interchange', function() {
           $(window).trigger('resize');
           $(window).trigger('resize');
 
-          setTimeout(function () {
-            sinon.assert.calledOnce(spy);
+          tryInterval({
+            interval: debounce,
+            timeout: 1000,
+            try: () => {
+              sinon.assert.calledOnce(spy);
+            },
+            then: () => {
+              $.triggersInitialized = false;
+              done();
+            },
+          });
 
-            $.triggersInitialized = false;
-            done();
-          }, debounce + 1);
         });
       });
     });
