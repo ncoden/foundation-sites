@@ -10,12 +10,12 @@
   * @param  {object} opts
   */
   global.tryInterval = function (opts) {
-    const _opts = Object.assign({}, opts);
-    let totalTime = 0;
+    var _opts = Object.assign({}, opts);
+    var totalTime = 0;
 
-    const interval = setInterval(() => {
-      let succeded = false;
-      let error = null;
+    var interval = setInterval(() => {
+      var succeded = false;
+      var error = null;
 
       totalTime += _opts.time;
 
