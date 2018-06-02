@@ -16,7 +16,7 @@
     "test:sass": "mocha test/sass/test_sass.js --colors",
     "test:javascript:transpile": "gulp sass:foundation --color && gulp test:transpile-js --color",
     "test:javascript:units": "npm run test:javascript:transpile && mocha-headless-chrome -a ignore-resource-errors -a no-sandbox -f test/javascript/index.html",
-    "test:javascript:browserstack": "npm run test:javascript:transpile && browserstack-runner",
+    "test:javascript:browserstack": "npm run test:javascript:transpile && LOG_LEVEL=trace browserstack-runner --verbose",
     "test:javascript:ci": "npm run test:javascript:transpile && mocha-headless-chrome -a ignore-resource-errors -a no-sandbox -f test/javascript/index.html && browserstack-runner",
     "test:visual": "gulp test --color",
     "deploy": "gulp deploy --color",
